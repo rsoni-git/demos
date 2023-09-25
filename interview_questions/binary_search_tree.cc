@@ -29,38 +29,34 @@ stdNode* newNode ( int iNodeValue ) {
 }
 
 
-int insert ( stdNode* pstiRootNode, int iNodeValue ) {
+int insert ( stdNode* pstiParentNode, int iNodeValue ) {
+  int iRtn = 0;
   stdNode *pstiNode = nullptr, *pstiNodeTmp = nullptr;
   stdNode* pstiNewNode = newNode(iNodeValue);
 
-  if ( ! pstiRootNode )
+  if ( ! pstiParentNode )
     goto ERREXIT;
 
-  pstiNode = pstiRootNode;
+  pstiNode = newNode(iNodeValue);
 
-  while ( true ) {
-    if ( iNodeValue <= pstiNode->iValue ) {
-      if ( pstiNode->pstiNodeLeft ) {
-        if ( iNodeValue > pstiNode->pstiNodeLeft->iValue ) {
-          pstiNodeTmp = pstiNode->pstiNodeLeft;
-          pstiNode->pstiNodeLeft = pstiNewNode;
-          pstiNode->pstiNodeLeft->
-        } else {
-          pstiNode = pstiNode->pstiNodeLeft;
-        }
-
-      } else {
-        pstiNode->pstiNodeLeft = pstiNewNode;
-        break;
-      }
+  if ( iNodeValue <= pstiParentNode->iValue ) {
+    if ( pstiParentNode->pstiNodeLeft ) {
+      iRtn = insert(pstiParentNode->pstiNodeLeft, iNodeValue);
+      if ( iRtn != 0 )
+        goto ERREXIT;
 
     } else {
-      if ( pstiNode->pstiNodeRight ) {
-        pstiNode = pstiNode->pstiNodeRight;
-      } else {
-        pstiNode->pstiNodeRight = pstiNewNode;
-        break;
-      }
+      pstiParentNode->pstiNodeLeft = pstiNode;
+    }
+
+  } else {
+    if ( pstiParentNode->pstiNodeRight ) {
+      insert(pstiParentNode->pstiNodeRight, iNodeValue);
+      if ( iRtn != 0 )
+        goto ERREXIT;
+
+    } else {
+      pstiParentNode->pstiNodeRight = pstiNode;
     }
   }
 
@@ -75,7 +71,7 @@ int insert ( stdNode* pstiRootNode, int iNodeValue ) {
 void inorderPrint ( stdNode* pstiParentNode ) {
   if ( pstiParentNode ) {
     inorderPrint(pstiParentNode->pstiNodeLeft);
-    cout << pstiParentNode->iValue;
+    cout << pstiParentNode->iValue << " ";
     inorderPrint(pstiParentNode->pstiNodeRight);
   }
 }
@@ -110,6 +106,6 @@ int main ( int iArgc, char** ppcArgv ) {
 
   inorderPrint(pstiRootNode);
 
-  return 0;    
+  return 0;
 } 
 

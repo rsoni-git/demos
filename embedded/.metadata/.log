@@ -1,0 +1,22 @@
+!SESSION 2023-09-25 17:08:01.594 -----------------------------------------------
+eclipse.buildId=Version 1.10.1
+java.version=11.0.14.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_IN
+Framework arguments:  -keyring /Users/rsoni/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -keyring /Users/rsoni/.eclipse_keyring
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2023-09-25 17:08:30.158
+!MESSAGE Log4j initialized with config file /Users/rsoni/tmp_backup_no_cloud/rsoni-git/demos/embedded/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-09-25 17:08:42.480
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-09-25 17:09:17.435
+!MESSAGE Indexed 'toggle_leds' (3 sources, 53 headers) in 1.05 sec: 1,949 declarations; 2,811 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.042%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2023-09-25 20:20:24.933
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2023-09-25 20:21:01.371
+!MESSAGE Won't launch debug session since we failed to locate the binary.
